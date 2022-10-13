@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
+import App from './Home/App';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -12,13 +13,13 @@ import PublicRoute from './PublicRoute';
 const publicRoute = [
     {
         path: 'home',
-        component: <Home />,
+        component: <App />,
         exact: true,
         restrict: true,
     },
     {
         path: 'home2',
-        component: <Home />,
+        component: <App />,
         exact: true,
         restrict: true,
     },
@@ -27,7 +28,7 @@ const publicRoute = [
 const privateRoute = [
     {
         path: 'private',
-        component: <Home />,
+        component: <App />,
         exact: true,
         restrict: true,
     },

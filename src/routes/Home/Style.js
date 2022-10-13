@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-component';
+import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
     from {

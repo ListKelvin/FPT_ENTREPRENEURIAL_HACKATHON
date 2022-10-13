@@ -1,25 +1,33 @@
-import './App.css';
-import logo from './logo.svg';
+import { useEffect } from 'react';
 
-function App() {
+import { useSelector, useDispatch } from 'redux';
+
+import logo from '../../assets/logo.svg';
+import { Wrapper, Logo, Header } from './Style';
+import { actions } from './slice';
+import { selectCounter, selectHello } from './slice/selectors';
+
+const App = () => {
+    const dispatch = useDispatch();
+    const counter = useSelector(selectCounter);
+    const hello = useSelector(selectHello);
+    useEffect(() => {
+        setInterval(() => dispatch(actions.changeCounter(performance.now().toFixed(0))), 100);
+    }, []);
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Wrapper>
+            <Header>
+                <Logo src={logo} alt="logo" />
+                <div>
+                    <div code>{hello}</div>
+                </div>
+                <div>
+                    <div code>{counter}</div>
+                </div>
+            </Header>
+        </Wrapper>
     );
-}
+};
 
 export default App;
