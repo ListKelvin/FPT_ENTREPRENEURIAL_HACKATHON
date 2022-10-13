@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useSelector, useDispatch } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../assets/logo.svg';
 import { Wrapper, Logo, Header } from './Style';
