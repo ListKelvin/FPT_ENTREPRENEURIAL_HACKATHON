@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import App from './Home/App';
@@ -35,6 +37,8 @@ const privateRoute = [
 ];
 
 const RouterComponent = () => {
+    const [setter, setSetter] = useState();
+
     return (
         <BrowserRouter>
             <Routes>
