@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from '../components/Layout/LayoutComponent';
+import Chat from './Chat3/Chat';
 import App from './Home/App';
 import SignInComponent from './LoginPage';
 import PostProductPage from './PostProduct';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import SignUpPage from './SignUpPage';
+import UpdateInfoPage from './UpdateInfo';
 
 // children: [
 //     {
@@ -38,6 +40,18 @@ const publicRoute = [
     {
         path: 'post',
         component: <PostProductPage />,
+        exact: true,
+        restrict: true,
+    },
+    {
+        path: 'update',
+        component: <UpdateInfoPage />,
+        exact: true,
+        restrict: true,
+    },
+    {
+        path: 'chat',
+        component: <Chat />,
         exact: true,
         restrict: true,
     },

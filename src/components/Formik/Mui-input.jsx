@@ -21,16 +21,17 @@ const MuiInput = ({ label, name, variant, ...rest }) => {
                                 },
                                 marginBottom: '20px',
                                 // "320px",
+                                '& .MuiFormLabel-root': {
+                                    '&.MuiInputLabel-root': {
+                                        color: 'white',
+                                    },
+                                },
                                 '& .MuiOutlinedInput-root': {
                                     borderRadius: '5px',
                                     borderColor: 'white',
                                 },
                                 '& .MuiInputLabel-root': {
                                     color: 'white',
-                                },
-                                '& .MuiOutlinedInput-input': {
-                                    borderRadius: '5px',
-                                    borderColor: 'white',
                                 },
                             }}
                             {...rest}

@@ -1,7 +1,9 @@
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
+import { logIn } from '../../../actions/AuthActions';
 import { BaseButton } from '../../../components/Button/Button.styled';
 import FormikControl from '../../../components/Formik/FormikControl';
 import { post } from '../../../utils/ApiCaller';
@@ -13,15 +15,16 @@ import { Box } from '@mui/system';
 
 const RightContent = () => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const onSubmit = (values) => {
-        const responsess = post('/auth/login', values, {}, {})
-            .then((data) => {
-                localStorageUtils.setItem('token', data.data.token);
-                navigate('/home');
-                console.log(data.data.token);
-            })
-            .catch((err) => console.error(err));
+        dispatch(logIn(values, navigate));
+        // const responsess = post('/auth/login', values, {}, {})
+        //     .then((data) => {
+        //         localStorageUtils.setItem('token', data.data.token);
+        //         navigate('/home');
+        //         console.log(data.data.token);
+        //     })
+        //     .catch((err) => console.error(err));
         console.log('Form data', values);
     };
     const initialValues = {

@@ -65,6 +65,7 @@ const UploadSection = () => {
                                 }}
                                 multiple
                             />
+
                             <button type="submit">Submit</button>
                         </Form>
                     </>
@@ -73,6 +74,7 @@ const UploadSection = () => {
         </Formik>
     );
 };
+// <img src={}/>
 // <img src={files} alt="" />
 
 export default UploadSection;

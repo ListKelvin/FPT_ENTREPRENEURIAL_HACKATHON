@@ -40,12 +40,6 @@ const PostForm = () => {
         { key: 'LUK2', value: 'LUK2' },
         { key: 'LUK3', value: 'LUK3' },
         { key: 'LUK4', value: 'LUK4' },
-        { key: 'TRS4', value: 'TRS4' },
-        { key: 'TRS5', value: 'TRS5' },
-        { key: 'TRS6', value: 'TRS6' },
-        { key: 'CN1', value: 'CN1' },
-        { key: 'CN2', value: 'CN2' },
-        { key: 'CN3', value: 'CN3' },
     ];
     const onSubmit = (values) => {
         // let data2 = {};
@@ -104,9 +98,13 @@ const PostForm = () => {
                                 <FormikControl
                                     control="MuiInput"
                                     sx={{
+                                        borderBottom: 'solid white 1px',
                                         width: { xs: '350px' },
                                         '& .MuiOutlinedInput-root': {
                                             borderRadius: '10px',
+                                        },
+                                        '&	.MuiOutlinedInput-notchedOutline': {
+                                            borderColor: 'white',
                                         },
                                     }}
                                     label="Tiêu đề"
@@ -162,6 +160,13 @@ const PostForm = () => {
                                             height: '20px',
                                             '& .MuiOutlinedInput-root': {
                                                 borderRadius: '10px',
+                                                '& fieldset': {
+                                                    borderColor: 'white',
+                                                },
+                                                '&:hover fieldset': {
+                                                    borderWidth: '2px',
+                                                    borderColor: 'white',
+                                                },
                                                 '&.Mui-focused fieldset': {
                                                     borderColor: 'white',
                                                 },
@@ -181,6 +186,19 @@ const PostForm = () => {
                                         width: { xs: '350px' },
                                         '& .MuiOutlinedInput-root': {
                                             borderRadius: '10px',
+                                            '&::before': {
+                                                borderBottom: '1px solid white',
+                                            },
+                                            '& fieldset': {
+                                                borderColor: 'white',
+                                            },
+                                            '&:hover fieldset': {
+                                                borderWidth: '2px',
+                                                borderColor: 'white',
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white',
+                                            },
                                         },
                                     }}
                                     label="Đia chỉ"
