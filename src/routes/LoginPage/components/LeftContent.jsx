@@ -5,18 +5,16 @@ import { Box } from '@mui/system';
 
 const LeftContent = () => {
     return (
-        <Grid item>
-            <Box>
-                <img
-                    src={Img1}
-                    style={{
-                        width: '624px',
-                        height: '580px',
-                    }}
-                    alt="hinhloggin"
-                ></img>
-            </Box>
-        </Grid>
+        <Box>
+            <img
+                src={Img1}
+                style={{
+                    width: '624px',
+                    height: '580px',
+                }}
+                alt="hinhloggin"
+            ></img>
+        </Box>
     );
 };
 

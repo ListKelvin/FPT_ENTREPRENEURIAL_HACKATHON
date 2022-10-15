@@ -1,7 +1,9 @@
 import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ButtonRegister } from '../../routes/SignUpPage/MuiStyled';
+import { post } from '../../utils/ApiCaller';
 import FormikControl from '../Formik/FormikControl';
 // import * as Yup from 'yup';
 import { ValidationSchema } from '../Schema/validation';
@@ -11,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 
 const FormRegister = () => {
+    const navigate = useNavigate();
     const initialValues = {
         name: '',
         email: '',
@@ -20,6 +23,17 @@ const FormRegister = () => {
     };
 
     const onSubmit = (values) => {
+        let data2 = {};
+        data2.name = values.name;
+        data2.email = values.email;
+        data2.password = values.password;
+        data2.confirmPassword = values.confirmPassword;
+        const responses = post('/account/sign-up', data2, {}, {})
+            .then((data) => {
+                console.log(data.message);
+                navigate('/home');
+            })
+            .catch((err) => console.log(err.message));
         console.log('Form data', values);
     };
     return (

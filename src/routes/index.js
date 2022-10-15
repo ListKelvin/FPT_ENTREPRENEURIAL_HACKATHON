@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Layout from '../components/Layout/LayoutComponent';
 import App from './Home/App';
 import SignInComponent from './LoginPage';
+import PostProductPage from './PostProduct';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import SignUpPage from './SignUpPage';
@@ -31,6 +32,12 @@ const publicRoute = [
     {
         path: 'register',
         component: <SignUpPage />,
+        exact: true,
+        restrict: true,
+    },
+    {
+        path: 'post',
+        component: <PostProductPage />,
         exact: true,
         restrict: true,
     },

@@ -17,7 +17,6 @@ const CheckBox = ({ name, label, ...rest }) => {
         <div className="form-control">
             <Field name={name}>
                 {({ field, meta }) => {
-                    console.log(meta);
                     return (
                         <>
                             <FormControlLabel

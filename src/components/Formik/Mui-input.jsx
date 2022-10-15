@@ -10,6 +10,7 @@ const MuiInput = ({ label, name, variant, ...rest }) => {
                 return (
                     <>
                         <TextField
+                            inputProps={{ input: { color: 'red' } }}
                             label={label}
                             id={name}
                             sx={{
@@ -18,12 +19,18 @@ const MuiInput = ({ label, name, variant, ...rest }) => {
                                     sm: '255px',
                                     md: '350px',
                                 },
-                                color: 'white',
-                                // height: '50px',
                                 marginBottom: '20px',
                                 // "320px",
                                 '& .MuiOutlinedInput-root': {
                                     borderRadius: '5px',
+                                    borderColor: 'white',
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: 'white',
+                                },
+                                '& .MuiOutlinedInput-input': {
+                                    borderRadius: '5px',
+                                    borderColor: 'white',
                                 },
                             }}
                             {...rest}

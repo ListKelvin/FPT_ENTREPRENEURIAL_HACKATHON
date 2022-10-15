@@ -7,7 +7,7 @@ const defaultURL = API_URL;
 const ApiCaller = (method, endpoint, headers, params, body) => {
     return axios({
         method,
-        url: defaultURL + endpoint,
+        url: 'http://localhost:8080' + endpoint,
         headers: Object.assign({}, headers),
         params: Object.assign({}, params),
         data: body,

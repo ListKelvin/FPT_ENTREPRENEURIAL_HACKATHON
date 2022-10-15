@@ -15,14 +15,12 @@ const SignInComponent = () => {
             <Container
                 sx={{
                     display: 'flex',
-                    justifyContetn: 'space-between',
                     width: '90vw',
                     height: '100vh',
                     background: '#282828',
                     alignItems: 'center',
                 }}
             >
-                <CssBaseline />
                 <LeftContent />
                 <RightContent />
             </Container>

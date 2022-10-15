@@ -6,7 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-const SelectItem = ({ label, name, options, ...rest }) => {
+const SelectItem = ({ label, name, options, variant, ...rest }) => {
     // <InputLabel>{label}</InputLabel>
     return (
         <Field name={name}>
@@ -19,6 +19,7 @@ const SelectItem = ({ label, name, options, ...rest }) => {
                             id="demo-simple-select"
                             value={name}
                             label={label}
+                            variant={variant}
                             {...field}
                             {...rest}
                             error={form.errors[name] ? true : false}
