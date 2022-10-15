@@ -36,10 +36,12 @@ const PostForm = () => {
         acceptcharity: false,
     };
     const optionSemester = [
-        { key: 'LUK1', value: 'LUK1' },
-        { key: 'LUK2', value: 'LUK2' },
-        { key: 'LUK3', value: 'LUK3' },
-        { key: 'LUK4', value: 'LUK4' },
+        { key: 'Đồ điện tử', value: 'Đồ điện tử' },
+        { key: 'Đồ gia dụng', value: 'Đồ gia dụng' },
+        { key: 'Thời Trang', value: 'Thời Trang' },
+        { key: 'Làm đẹp', value: 'Làm đẹp' },
+        { key: 'Văn Phòng Phẩm', value: 'Văn Phòng Phẩm' },
+        { key: 'Thể Thao', value: 'Thể Thao' },
     ];
     const onSubmit = (values) => {
         // let data2 = {};

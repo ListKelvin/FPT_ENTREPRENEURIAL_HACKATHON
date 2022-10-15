@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 
 const LeftContent = () => {
     return (
-        <Box>
+        <Box sx={{ display: { xs: 'none', md: 'none', sm: 'none', lg: 'flex' } }}>
             <img
                 src={Img1}
                 style={{
