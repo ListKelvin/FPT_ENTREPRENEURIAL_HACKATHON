@@ -1,24 +1,46 @@
-import { Field, ErrorMessage } from 'formik';
+import { Field } from 'formik';
 
-import TextError from './TextError';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
-function Select(props) {
-    const { label, name, options, ...rest } = props;
+const SelectItem = ({ label, name, options, variant, ...rest }) => {
+    // <InputLabel>{label}</InputLabel>
     return (
-        <div className="form-control">
-            <label htmlFor={name}>{label}</label>
-            <Field as="select" id={name} name={name} {...rest}>
-                {options.map((option) => {
-                    return (
-                        <option key={option.value} value={option.value}>
-                            {option.key}
-                        </option>
-                    );
-                })}
-            </Field>
-            <ErrorMessage component={TextError} name={name} />
-        </div>
+        <Field name={name}>
+            {({ field, form }) => {
+                return (
+                    <FormControl>
+                        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={name}
+                            label={label}
+                            variant={variant}
+                            {...field}
+                            {...rest}
+                            error={form.errors[name] ? true : false}
+                            // helperText={form.errors[name]}
+                        >
+                            {options.map((option) => {
+                                return (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.key}
+                                    </MenuItem>
+                                );
+                            })}
+                        </Select>
+                        <FormHelperText error={form.errors[name] ? true : false}>
+                            {form.errors[name]}
+                        </FormHelperText>
+                    </FormControl>
+                );
+            }}
+        </Field>
     );
-}
+};
 
-export default Select;
+export default SelectItem;

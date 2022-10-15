@@ -1,13 +1,19 @@
 import * as Yup from 'yup';
 
 export const ValidationSchema = Yup.object({
-    firstName: Yup.string().required('required'),
-    rollNumber: Yup.string().required('required'),
-    lastName: Yup.string().required('required'),
-    Major: Yup.string().required('required'),
-    currentSemester: Yup.string().required('required'),
-    phoneNumber: Yup.string()
-        .required('phonenumber cannot be empty')
-        .matches(/^(01|03|05|07|08|09)+([0-9]{8})\b/, 'Your phone does not right'),
+    name: Yup.string().required('required'),
+    email: Yup.string()
+        .required('email cannot be empty')
+        .matches(/^[\w-]+@fpt.edu.vn$/, 'Your email must match the following formats'),
     accpetChallenge: Yup.boolean().oneOf([true], 'Please accept the terms of service'),
+    password: Yup.string()
+        .required('Required')
+        .min(8, 'Your password is too short.')
+        .matches(
+            /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+            'Password must One Uppercase, One Lowercase, One Number and one special case Character.'
+        ),
+    confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), ''], 'Passwords must match')
+        .required('Required'),
 });

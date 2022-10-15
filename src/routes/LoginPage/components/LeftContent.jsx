@@ -1,19 +1,20 @@
+import Img1 from '../../../assets/Login/image 1.png';
+
 import Grid from '@mui/material/Grid';
+import { Box } from '@mui/system';
 
 const LeftContent = () => {
     return (
-        <Grid
-            item
-            xs={false}
-            sm={4}
-            md={7}
-            sx={{
-                backgroundImage: 'url(https://source.unsplash.com/random)',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        />
+        <Box sx={{ display: { xs: 'none', md: 'none', sm: 'none', lg: 'flex' } }}>
+            <img
+                src={Img1}
+                style={{
+                    width: '624px',
+                    height: '580px',
+                }}
+                alt="hinhloggin"
+            ></img>
+        </Box>
     );
 };
 

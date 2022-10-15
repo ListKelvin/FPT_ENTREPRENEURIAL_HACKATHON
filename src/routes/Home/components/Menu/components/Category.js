@@ -1,5 +1,3 @@
-import React from 'react';
-
 import cate_1 from '../../../../../assets/image/category_1.png';
 import cate_2 from '../../../../../assets/image/category_2.png';
 import cate_3 from '../../../../../assets/image/category_3.png';

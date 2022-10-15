@@ -1,18 +1,29 @@
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
+import { logIn } from '../../../actions/AuthActions';
 import { BaseButton } from '../../../components/Button/Button.styled';
 import FormikControl from '../../../components/Formik/FormikControl';
+import { post } from '../../../utils/ApiCaller';
+import localStorageUtils from '../../../utils/localStorageUtils';
 import { FormContainer } from '../styles';
 
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
 import { Box } from '@mui/system';
 
 const RightContent = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const onSubmit = (values) => {
+        const responsess = post('/auth/login', values, {}, {})
+            .then((data) => {
+                localStorageUtils.setItem('token', data.data.token);
+                navigate('/home');
+                console.log(data.data.token);
+            })
+            .catch((err) => console.error(err));
         console.log('Form data', values);
     };
     const initialValues = {
@@ -20,17 +31,10 @@ const RightContent = () => {
         password: '',
     };
 
-    const options = [
-        { key: 'Email', value: 'isEmail' },
-        { key: 'Telephone', value: 'isTelephone' },
-    ];
     const validationSchema = Yup.object({
         email: Yup.string()
             .required('email cannot be empty')
-            .matches(
-                /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/,
-                'Your email must match the following formats'
-            ),
+            .matches(/^[\w-]+@fpt.edu.vn$/, 'Your email must match the following formats'),
         password: Yup.string()
             .required('Required')
             .min(8, 'Your password is too short.')
@@ -40,81 +44,81 @@ const RightContent = () => {
             ),
     });
     return (
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-            <Box
-                sx={{
-                    my: 8,
-                    mx: 4,
-                    px: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
+        <Box
+            sx={{
+                my: 8,
+                mx: 4,
+                px: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+            }}
+        >
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
             >
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}
-                >
-                    {(formik) => {
-                        return (
-                            <FormContainer>
+                {(formik) => {
+                    return (
+                        <FormContainer>
+                            <Typography
+                                sx={{
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '19px',
+                                    color: 'white',
+                                }}
+                            >
+                                Welcome Back
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontFamily: 'Roboto',
+                                    fontStyle: 'normal',
+                                    fontWeight: 700,
+                                    fontSize: '30px',
+                                    lineHeight: '35px',
+                                    color: '#94FF6E',
+                                    marginBottom: '10px',
+                                }}
+                            >
+                                Đăng Nhập Ngay
+                            </Typography>
+                            <FormikControl
+                                // control="input"
+                                control="MuiInput"
+                                label="Email"
+                                name="email"
+                                variant="outlined"
+                            />
+                            <FormikControl
+                                control="MuiInput"
+                                type="password"
+                                label="Password"
+                                name="password"
+                                variant="outlined"
+                            />
+                            <BaseButton
+                                variant="contained"
+                                type="submit"
+                                disabled={!formik.isValid}
+                            >
                                 <Typography
                                     sx={{
-                                        fontWeight: 400,
+                                        fontWeight: 700,
                                         fontSize: '16px',
                                         lineHeight: '19px',
-                                        color: 'white',
                                     }}
                                 >
-                                    Welcome Back
+                                    Đăng nhập
                                 </Typography>
-                                <Typography
-                                    sx={{
-                                        fontFamily: 'Roboto',
-                                        fontStyle: 'normal',
-                                        fontWeight: 700,
-                                        fontSize: '30px',
-                                        lineHeight: '35px',
-                                        color: '#94FF6E',
-                                        marginBottom: '10px',
-                                    }}
-                                >
-                                    Đăng Nhập Ngay
-                                </Typography>
-                                <FormikControl
-                                    // control="input"
-                                    control="MuiInput"
-                                    label="Email"
-                                    name="email"
-                                />
-                                <FormikControl
-                                    control="MuiInput"
-                                    type="password"
-                                    label="Password"
-                                    name="password"
-                                />
-                                <BaseButton
-                                    variant="contained"
-                                    type="submit"
-                                    disabled={!formik.isValid}
-                                >
-                                    <Typography
-                                        sx={{
-                                            fontWeight: 700,
-                                            fontSize: '16px',
-                                            lineHeight: '19px',
-                                        }}
-                                    >
-                                        Đăng nhập
-                                    </Typography>
-                                </BaseButton>
-                            </FormContainer>
-                        );
-                    }}
-                </Formik>
-            </Box>
-        </Grid>
+                            </BaseButton>
+                        </FormContainer>
+                    );
+                }}
+            </Formik>
+        </Box>
     );
 };
 

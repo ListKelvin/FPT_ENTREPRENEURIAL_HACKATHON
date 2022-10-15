@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import bg from '../../assets/image/bg.png';
-import { addItem } from '../../store/slice/cartSlice';
 import productApi from '../../utils/productApi';
 import { Img } from './Style';
 import Menu from './components/Menu/index';

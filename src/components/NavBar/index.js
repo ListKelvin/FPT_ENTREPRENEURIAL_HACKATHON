@@ -9,6 +9,7 @@ import {
     Bottom,
     Search,
     Button,
+    NavLink,
     AddingButton,
     Container,
     NavButton,
@@ -59,10 +60,10 @@ function NavBar() {
             transition: theme.transitions.create('width'),
             width: '100%',
             [theme.breakpoints.up('sm')]: {
-                width: '12ch',
-                '&:focus': {
-                    width: '20ch',
-                },
+                width: '100ch',
+                // '&:focus': {
+                //     width: '40ch',
+                // },
             },
         },
     }));
@@ -94,17 +95,24 @@ function NavBar() {
                             <RightNav>
                                 <ul>
                                     <li>
-                                        <SegmentIcon />
-                                        Đơn hàng
+                                        <NavLink to="/order">
+                                            <SegmentIcon />
+                                            Đơn hàng
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <ChatIcon />
-                                        Chat
+                                        <NavLink to="/chat">
+                                            <ChatIcon />
+                                            Chat
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <NotificationsIcon />
-                                        Thông báo
+                                        <NavLink to="/notification">
+                                            <NotificationsIcon />
+                                            Thông báo
+                                        </NavLink>
                                     </li>
+
                                     <Button>
                                         <PermIdentityIcon />
                                         Tài khoản
@@ -122,7 +130,9 @@ function NavBar() {
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </Search>
-                            <AddingButton>Đăng Tin</AddingButton>
+                            <AddingButton>
+                                <NavLink to="post">Đăng Tin</NavLink>
+                            </AddingButton>
                         </Bottom>
                     </>
                 </Nav>

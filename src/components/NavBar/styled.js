@@ -1,7 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import px2vw from '../../utils/px2vw';
 
+export const NavLink = styled(Link)`
+    text-decoration: none;
+    color: white;
+`;
 export const Nav = styled.div`
     max-width: 1300px;
     height: 150px;

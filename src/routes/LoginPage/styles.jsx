@@ -1,5 +1,8 @@
 import { Form } from 'formik';
+import { up, down, between, only, createTheme } from 'styled-breakpoints';
 import styled from 'styled-components';
+
+import { Section } from '../../components/Container';
 
 export const FormContainer = styled(Form)`
     display: flex;
@@ -16,3 +19,5 @@ export const ButtonsContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const StyleSection = styled(Section)``;
