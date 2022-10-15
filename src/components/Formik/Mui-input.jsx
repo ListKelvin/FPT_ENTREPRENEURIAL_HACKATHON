@@ -16,12 +16,13 @@ const MuiInput = ({ label, name, ...rest }) => {
                                 width: {
                                     xs: '220px',
                                     sm: '255px',
-                                    md: '320px',
+                                    md: '350px',
                                 },
+                                // height: '50px',
+                                marginBottom: '20px',
                                 // "320px",
-                                // height: "45px",
                                 '& .MuiOutlinedInput-root': {
-                                    borderRadius: '50px',
+                                    borderRadius: '5px',
                                 },
                             }}
                             {...rest}

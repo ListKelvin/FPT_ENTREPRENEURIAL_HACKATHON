@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from '../components/Layout/LayoutComponent';
 import App from './Home/App';
+import SignInComponent from './LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -21,8 +22,8 @@ const publicRoute = [
         restrict: true,
     },
     {
-        path: 'home2',
-        component: <App />,
+        path: 'login',
+        component: <SignInComponent />,
         exact: true,
         restrict: true,
     },

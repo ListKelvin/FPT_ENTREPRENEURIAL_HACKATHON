@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL } from '../config/index';
+import { API_URL } from '../config/config';
 
 const defaultURL = API_URL;
 // This is config default for axios caller

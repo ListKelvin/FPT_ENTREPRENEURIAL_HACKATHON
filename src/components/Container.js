@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 import px2vw from '../utils/px2vw';
 
-export const Container = styled.section`
-    max-width: 1100px;
+export const Section = styled.section`
+    background-color: transparent;
     width: 100%;
-    height: ${px2vw(550)};
-    display: flex;
-    justify-content: space-between;
-    margin: 64px 0;
+    min-height: 100vh;
+    @media (min-width: 1200px) {
+        max-width: ${px2vw(1260)};
+    }
 `;

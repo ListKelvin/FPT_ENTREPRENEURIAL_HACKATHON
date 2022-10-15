@@ -7,14 +7,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 const Layout = ({ children }) => {
     return (
-        <>
+        <div style={{ background: 'rgba(15, 15, 15, 1)' }}>
             <Navbar />
-            <ContainerStyle maxWidth="xl">
+            <ContainerStyle maxWidth={false}>
                 <CssBaseline />
                 {children}
             </ContainerStyle>
             <Footer />
-        </>
+        </div>
     );
 };
 
