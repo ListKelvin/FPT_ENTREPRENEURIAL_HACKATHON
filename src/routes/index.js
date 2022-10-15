@@ -13,6 +13,7 @@ import Product from './ProductPage/index';
 import PublicRoute from './PublicRoute';
 import SignUpPage from './SignUpPage';
 import UpdateInfoPage from './UpdateInfo';
+import OrderPage from './orderPage';
 
 // children: [
 //     {
@@ -46,6 +47,12 @@ const publicRoute = [
         exact: true,
         restrict: true,
     },
+    {
+        path: 'order',
+        component: <OrderPage />,
+        exact: true,
+        restrict: true,
+    },
 ];
 
 const privateRoute = [
@@ -59,8 +66,8 @@ const privateRoute = [
 
 const RouterComponent = () => {
     return (
-        <Layout>
-            <BrowserRouter>
+        <BrowserRouter>
+            <Layout>
                 <Routes>
                     <Route exact path="/" element={<Navigate to="/home" />} />
                     <Route exact path="/" element={<PrivateRoute />}>
@@ -87,8 +94,8 @@ const RouterComponent = () => {
                     </Route>
                     <Route path="*" element={<p>404</p>} />
                 </Routes>
-            </BrowserRouter>
-        </Layout>
+            </Layout>
+        </BrowserRouter>
     );
 };
 
