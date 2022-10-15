@@ -10,7 +10,7 @@ const productApi = {
         return get(url, {}, { authorization: token });
     },
     getAllProduct: () => {
-        const url = `/products/list`;
+        const url = `/product/list-all`;
         return get(url, {}, {});
     },
 };
