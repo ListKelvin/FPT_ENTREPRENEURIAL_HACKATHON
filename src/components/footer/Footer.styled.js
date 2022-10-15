@@ -1,4 +1,4 @@
-import { down } from 'styled-breakpoints';
+// import { down } from 'styled-breakpoints';
 import styled from 'styled-components';
 
 export const Wrapper = styled.footer`
@@ -11,11 +11,10 @@ export const Wrapper = styled.footer`
 export const Info = styled.div`
     display: flex;
     align-items: center;
-
-    ${down('sm')} {
-        flex-direction: column;
-    }
 `;
+/* ${down('sm')} {
+        flex-direction: column;
+    } */
 export const Icon = styled.img`
     width: 100px;
     height: 100px;
