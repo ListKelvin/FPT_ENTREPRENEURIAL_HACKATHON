@@ -75,3 +75,4 @@ export const Box = styled.div`
         transform: translateY(-20px);
     }
 `;
+export const Div = styled.div``;

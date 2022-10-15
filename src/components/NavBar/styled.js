@@ -9,15 +9,38 @@ export const Nav = styled.div`
     background-color: #0f0f0f;
     display: flex;
     flex-direction: column;
+    transition: 0.3s ease all;
+    @media screen and (max-width: 1000px) {
+        height: auto;
+        padding: 50px;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        width: 300px;
+        background: #1f1f1f;
+    }
 `;
 export const Top = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        align-items: flex-end;
+        li {
+            margin-bottom: 36px !important;
+        }
+    }
 `;
 export const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        width: 200px;
+        align-items: center;
+        display: none;
+    }
 `;
 export const Search = styled.input`
     font-family: 'Roboto', sans-serif;
@@ -32,13 +55,15 @@ export const Search = styled.input`
 `;
 export const LeftNav = styled.div``;
 export const RightNav = styled.div`
-    flex: 0.75;
     ul {
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
     li {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 345;
@@ -47,6 +72,16 @@ export const RightNav = styled.div`
         color: white;
         list-style: none;
         margin: 12px;
+        cursor: pointer;
+    }
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        ul {
+            flex-direction: column;
+        }
+        li {
+            margin-bottom: 36px !important;
+        }
     }
 `;
 export const Logo = styled.img`
@@ -71,11 +106,24 @@ export const Button = styled.button`
 `;
 export const AddingButton = styled(Button)`
     border: 1px solid #94ff6e;
-    margin-right: 15px;
 `;
 export const Container = styled.div`
     width: 100%;
     display: flex;
     background-color: #0f0f0f;
     justify-content: center;
+`;
+export const NavButton = styled.button`
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    padding: 5px;
+    color: #000;
+    font-size: 18px;
+    background: transparent;
+    color: white;
+    @media screen and (max-width: 1000px) {
+        display: block;
+    }
 `;

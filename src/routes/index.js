@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from '../components/Layout/LayoutComponent';
+import Cart from './Cart/index';
 import App from './Home/App';
 import SignInComponent from './LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -31,6 +32,12 @@ const publicRoute = [
     {
         path: 'detail',
         component: <Product />,
+        exact: true,
+        restrict: true,
+    },
+    {
+        path: 'cart',
+        component: <Cart />,
         exact: true,
         restrict: true,
     },

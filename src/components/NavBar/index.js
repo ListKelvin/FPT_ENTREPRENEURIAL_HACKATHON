@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SecondHandLogo from '../../assets/logo/logodark.png';
 import {
@@ -11,9 +11,11 @@ import {
     Button,
     AddingButton,
     Container,
+    NavButton,
 } from './styled';
 
 import ChatIcon from '@mui/icons-material/Chat';
+import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import SearchIcon from '@mui/icons-material/Search';
@@ -64,45 +66,70 @@ function NavBar() {
             },
         },
     }));
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const toggleNav = () => {
+        setToggleMenu(!toggleMenu);
+    };
+
+    useEffect(() => {
+        const changeWidth = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', changeWidth);
+
+        return () => {
+            window.removeEventListener('resize', changeWidth);
+        };
+    }, []);
     return (
         <Container>
-            <Nav>
-                <Top>
-                    <Logo src={SecondHandLogo}></Logo>
-                    <RightNav>
-                        <ul>
-                            <li>
-                                <SegmentIcon />
-                                Đơn hàng
-                            </li>
-                            <li>
-                                <ChatIcon />
-                                Chat
-                            </li>
-                            <li>
-                                <NotificationsIcon />
-                                Thông báo
-                            </li>
-                            <Button>
-                                <PermIdentityIcon />
-                                Tài khoản
-                            </Button>
-                        </ul>
-                    </RightNav>
-                </Top>
-                <Bottom>
-                    <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
-                    <AddingButton>Đăng Tin</AddingButton>
-                </Bottom>
-            </Nav>
+            {(toggleMenu || screenWidth > 1000) && (
+                <Nav>
+                    <>
+                        <Top>
+                            <Logo src={SecondHandLogo}></Logo>
+                            <RightNav>
+                                <ul>
+                                    <li>
+                                        <SegmentIcon />
+                                        Đơn hàng
+                                    </li>
+                                    <li>
+                                        <ChatIcon />
+                                        Chat
+                                    </li>
+                                    <li>
+                                        <NotificationsIcon />
+                                        Thông báo
+                                    </li>
+                                    <Button>
+                                        <PermIdentityIcon />
+                                        Tài khoản
+                                    </Button>
+                                </ul>
+                            </RightNav>
+                        </Top>
+                        <Bottom>
+                            <Search>
+                                <SearchIconWrapper>
+                                    <SearchIcon />
+                                </SearchIconWrapper>
+                                <StyledInputBase
+                                    placeholder="Search…"
+                                    inputProps={{ 'aria-label': 'search' }}
+                                />
+                            </Search>
+                            <AddingButton>Đăng Tin</AddingButton>
+                        </Bottom>
+                    </>
+                </Nav>
+            )}
+            <NavButton onClick={toggleNav} className="btn">
+                <MenuIcon />
+            </NavButton>
         </Container>
     );
 }

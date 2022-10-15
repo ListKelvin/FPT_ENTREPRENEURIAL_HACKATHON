@@ -3,8 +3,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 
-import minusIcon from '../../assets/images/icon-minus.svg';
-import plusIcon from '../../assets/images/icon-plus.svg';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { addItem } from '../../store/slice/cartSlice';
+import { items } from '../Home/data';
 import { productData } from './ProductData';
 import { Lightbox } from './components/LightBox';
 import {
@@ -26,6 +29,7 @@ import {
     Info,
     SuperInfo,
     Avatar,
+    Div,
 } from './styled';
 
 import AddIcon from '@mui/icons-material/Add';
@@ -38,9 +42,10 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
     const avatar =
         'https://scontent.fsgn2-1.fna.fbcdn.net/v/t39.30808-6/298917782_2850144668625493_4934864891793808158_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iUWQJwob5wMAX9XR1lo&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT-b15etkZh7oEPP0Ekh1T-7vfTu5npBtuBpOY2HXSbu0w&oe=63502348';
     const handleAddToCart = () => {
-        setCartProductQuantity((prevState) => prevState + productQuantity);
-        setProductQuantity(0);
+        dispatch(addItem(items[2]));
     };
+    const dispatch = useDispatch();
+    const { id } = useParams();
     const handleIncrease = () => {
         if (quanity < 99) {
             setQuanity((quanity) => (quanity += 1));
@@ -143,7 +148,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                             </>
                         )}
                     </div>
-                    <div>
+                    <Div>
                         <Description className="product-description flow">
                             <h1>Áo nữ Libé Workshop</h1>
                             <Price>200.000 đ</Price>
@@ -163,7 +168,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                             </QuantiyContainer>
                             <ButtonContainer>
                                 <AddButton>Thêm vào giỏ hàng</AddButton>
-                                <BuyButton>MUA NGAY</BuyButton>
+                                <BuyButton onClick={handleAddToCart}>MUA NGAY</BuyButton>
                             </ButtonContainer>
                         </Description>
                         <Description>
@@ -177,7 +182,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                                 </SuperInfo>
                             </Info>
                         </Description>
-                    </div>
+                    </Div>
                 </Section>
 
                 {lightbox && <Lightbox productData={productData} setLightbox={setLightbox} />}

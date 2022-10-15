@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import bg from '../../assets/image/bg.png';
+import { addItem } from '../../store/slice/cartSlice';
 import { Img } from './Style';
 import Menu from './components/Menu/index';
 import CardContainer from './components/ProductCard';
 import { items } from './data';
-import { actions } from './slice/index';
 
 import { Container } from '@mui/system';
 
@@ -18,7 +18,6 @@ const App = () => {
     const filterItems = (category) => {
         if (category === 'all') {
             setMenuItems(items);
-            dispatch(actions.changeTitle(category));
             return;
         }
         const newItems = items.filter((item) => item.category === category);

@@ -1,5 +1,6 @@
 export const items = [
     {
+        id: '1',
         author: 'Nguyen Van A',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/f876620c9952350496e2ae554325ba22',
@@ -8,6 +9,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '2',
         author: 'Nguyen Van C',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/a9473d4c6be3e83424af54b8a451f11c',
@@ -16,6 +18,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '3',
         author: 'Nguyen Van D',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/8e57b44835fc9d78bea76bc458ee86eb',
@@ -24,6 +27,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '4',
         author: 'Nguyen Van E',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/0692fabc8cee7bec1a15311c3bc94a59',
@@ -32,6 +36,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '5',
         author: 'Nguyen Van F',
         time: '12 giờ trước',
         img: 'https://scontent.fsgn2-1.fna.fbcdn.net/v/t39.30808-6/298917782_2850144668625493_4934864891793808158_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iUWQJwob5wMAX9XR1lo&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT-b15etkZh7oEPP0Ekh1T-7vfTu5npBtuBpOY2HXSbu0w&oe=63502348',
@@ -40,6 +45,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '6',
         author: 'Nguyen Van A',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/f876620c9952350496e2ae554325ba22',
@@ -48,6 +54,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '7',
         author: 'Nguyen Van C',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/a9473d4c6be3e83424af54b8a451f11c',
@@ -56,6 +63,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '8',
         author: 'Nguyen Van D',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/8e57b44835fc9d78bea76bc458ee86eb',
@@ -64,6 +72,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '9',
         author: 'Nguyen Van E',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/0692fabc8cee7bec1a15311c3bc94a59',
@@ -72,6 +81,7 @@ export const items = [
         price: '2.225.000 đ',
     },
     {
+        id: '10',
         author: 'Nguyen Van F',
         time: '12 giờ trước',
         img: 'https://scontent.fsgn2-1.fna.fbcdn.net/v/t39.30808-6/298917782_2850144668625493_4934864891793808158_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iUWQJwob5wMAX9XR1lo&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT-b15etkZh7oEPP0Ekh1T-7vfTu5npBtuBpOY2HXSbu0w&oe=63502348',

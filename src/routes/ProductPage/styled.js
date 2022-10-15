@@ -1,3 +1,4 @@
+import { up, down, between, only } from 'styled-breakpoints';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -25,17 +26,23 @@ export const Section = styled.div`
     display: flex;
     justify-content: space-between;
     color: white;
+    ${down('xl')} {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 export const Description = styled.div`
     width: 400px;
     background: rgba(217, 217, 217, 0.08);
     border-radius: 15px;
-
+    margin-bottom: 30px;
     h1 {
         margin: 12px 12px;
     }
     p {
         margin: 12px 12px;
+    }
+    ${down('xl')} {
     }
 `;
 export const Price = styled.h1`
@@ -121,4 +128,10 @@ export const SuperInfo = styled.div`
 `;
 export const Info = styled.div`
     display: flex;
+`;
+export const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
