@@ -25,7 +25,8 @@ export const Img = styled.img`
     border-radius: 10px;
 `;
 export const Category = styled.div`
-    width: 88px;
+    min-width: 88px;
+    max-width: 100px;
     height: 20px;
     border-radius: 15px;
     border: 1px solid #ffffff;

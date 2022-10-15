@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { actions } from '../../slice/index';
+// import { useDispatch } from 'react-redux';
+// import { actions } from '../../slice/index';
 import { Box } from '../../styled';
 
 function Item({ img, name, filterItems }) {
-    const dispatch = useDispatch;
+    // const dispatch = useDispatch;
     const handleClick = () => {
         filterItems(name);
-        dispatch(actions.changeTitle(name));
+        // dispatch(actions.changeTitle(name));
     };
     return (
         <Box onClick={handleClick}>

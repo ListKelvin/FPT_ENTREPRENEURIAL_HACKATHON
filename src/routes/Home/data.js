@@ -19,7 +19,7 @@ export const items = [
         author: 'Nguyen Van D',
         time: '12 giờ trước',
         img: 'https://cf.shopee.vn/file/8e57b44835fc9d78bea76bc458ee86eb',
-        category: 'Thời Trang   Ư',
+        category: 'Thời Trang',
         name: 'Tai nghe Marshall Major II Bluetooth',
         price: '2.225.000 đ',
     },
