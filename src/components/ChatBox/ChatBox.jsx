@@ -18,10 +18,11 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
 
     // fetching data for header
     useEffect(() => {
-        const userId = chat?.members?.find((id) => id !== currentUser);
+        // const userId = chat?.members?.find((id) => id !== currentUser);
         const getUserData = async () => {
             try {
-                const { data } = await getUser(userId);
+                const { data } = await getUser();
+                console.log(data);
                 setUserData(data);
             } catch (error) {
                 console.log(error);

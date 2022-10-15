@@ -8,7 +8,7 @@ const authReducer = (
             return { ...state, loading: true, error: false };
         case 'AUTH_SUCCESS':
             console.log(action.data);
-            localStorage.setItem('token', JSON.stringify({ ...action?.data.token }));
+            localStorage.setItem('token', JSON.stringify({ ...action?.data }));
 
             return { ...state, authData: action.data, loading: false, error: false };
 

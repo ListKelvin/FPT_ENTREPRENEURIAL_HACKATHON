@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from '../components/Layout/LayoutComponent';
-import Chat from './Chat3/Chat';
+import Cart from './Cart/index';
+import ChatBox from './Chat';
 import App from './Home/App';
 import SignInComponent from './LoginPage';
 import PostProductPage from './PostProduct';
 import PrivateRoute from './PrivateRoute';
+import Product from './ProductPage/index';
 import PublicRoute from './PublicRoute';
 import SignUpPage from './SignUpPage';
 import UpdateInfoPage from './UpdateInfo';
@@ -32,26 +34,15 @@ const publicRoute = [
         restrict: true,
     },
     {
-        path: 'register',
-        component: <SignUpPage />,
+        path: 'chat',
+        component: <ChatBox />,
         exact: true,
         restrict: true,
     },
+
     {
         path: 'post',
         component: <PostProductPage />,
-        exact: true,
-        restrict: true,
-    },
-    {
-        path: 'update',
-        component: <UpdateInfoPage />,
-        exact: true,
-        restrict: true,
-    },
-    {
-        path: 'chat',
-        component: <Chat />,
         exact: true,
         restrict: true,
     },

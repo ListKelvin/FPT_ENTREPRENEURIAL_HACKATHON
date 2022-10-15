@@ -55,6 +55,7 @@ const UploadSection = () => {
                     <>
                         <Form>
                             <input
+                                className="input"
                                 id="file"
                                 name="profile"
                                 type="file"
@@ -66,7 +67,9 @@ const UploadSection = () => {
                                 multiple
                             />
 
-                            <button type="submit">Submit</button>
+                            <button className="button" type="submit">
+                                Submit
+                            </button>
                         </Form>
                     </>
                 );

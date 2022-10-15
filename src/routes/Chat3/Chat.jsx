@@ -15,7 +15,7 @@ const Chat = () => {
     const dispatch = useDispatch();
     const socket = useRef();
     const { user } = useSelector((state) => state.authReducer.authData);
-
+    console.log(user);
     const [chats, setChats] = useState([]);
     const [onlineUsers, setOnlineUsers] = useState([]);
     const [currentChat, setCurrentChat] = useState(null);
@@ -36,7 +36,7 @@ const Chat = () => {
 
     // Connect to Socket.io
     useEffect(() => {
-        socket.current = io('ws://localhost:8800');
+        socket.current = io('ws://localhost:8080');
         socket.current.emit('new-user-add', user._id);
         socket.current.on('get-users', (users) => {
             setOnlineUsers(users);

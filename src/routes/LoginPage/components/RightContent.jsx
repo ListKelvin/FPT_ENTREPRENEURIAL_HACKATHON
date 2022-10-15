@@ -17,14 +17,13 @@ const RightContent = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const onSubmit = (values) => {
-        dispatch(logIn(values, navigate));
-        // const responsess = post('/auth/login', values, {}, {})
-        //     .then((data) => {
-        //         localStorageUtils.setItem('token', data.data.token);
-        //         navigate('/home');
-        //         console.log(data.data.token);
-        //     })
-        //     .catch((err) => console.error(err));
+        const responsess = post('/auth/login', values, {}, {})
+            .then((data) => {
+                localStorageUtils.setItem('token', data.data.token);
+                navigate('/home');
+                console.log(data.data.token);
+            })
+            .catch((err) => console.error(err));
         console.log('Form data', values);
     };
     const initialValues = {
