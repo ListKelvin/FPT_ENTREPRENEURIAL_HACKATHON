@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
             <Navbar />
             <CssBaseline />
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

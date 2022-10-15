@@ -10,6 +10,8 @@ export const Wrapper = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
 `;
 export const Foot = styled.div`
     width: 100%;

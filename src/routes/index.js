@@ -6,6 +6,7 @@ import Layout from '../components/Layout/LayoutComponent';
 import App from './Home/App';
 import SignInComponent from './LoginPage';
 import PrivateRoute from './PrivateRoute';
+import Product from './ProductPage/index';
 import PublicRoute from './PublicRoute';
 
 // children: [
@@ -24,6 +25,12 @@ const publicRoute = [
     {
         path: 'login',
         component: <SignInComponent />,
+        exact: true,
+        restrict: true,
+    },
+    {
+        path: 'detail',
+        component: <Product />,
         exact: true,
         restrict: true,
     },
