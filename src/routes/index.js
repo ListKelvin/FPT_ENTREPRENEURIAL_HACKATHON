@@ -30,7 +30,7 @@ const publicRoute = [
         restrict: true,
     },
     {
-        path: 'detail',
+        path: 'detail/:id',
         component: <Product />,
         exact: true,
         restrict: true,

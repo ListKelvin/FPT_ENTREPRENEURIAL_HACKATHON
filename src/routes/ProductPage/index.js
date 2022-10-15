@@ -35,14 +35,15 @@ import {
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }) => {
+const Product = () => {
     const [currentProductImage, setCurrentProductImage] = useState(0);
     const [lightbox, setLightbox] = useState(false);
     const [quanity, setQuanity] = useState(0);
+    const [itemz, setItem] = useState();
     const avatar =
         'https://scontent.fsgn2-1.fna.fbcdn.net/v/t39.30808-6/298917782_2850144668625493_4934864891793808158_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iUWQJwob5wMAX9XR1lo&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT-b15etkZh7oEPP0Ekh1T-7vfTu5npBtuBpOY2HXSbu0w&oe=63502348';
     const handleAddToCart = () => {
-        dispatch(addItem(items[2]));
+        dispatch(addItem(items[id]));
     };
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -64,7 +65,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                     <div>
                         <BigImg
                             onClick={() => window.innerWidth > 768 && setLightbox(true)}
-                            src={productData[currentProductImage].png}
+                            src={`${items[id].img[0]}`}
                             alt=""
                         />
                         <div>
@@ -73,7 +74,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                                     <img
                                         onClick={() => setCurrentProductImage(0)}
                                         className={currentProductImage === 0 ? 'active' : ''}
-                                        src={productData[0].thumbnail}
+                                        src={`${items[id].img[1]}`}
                                         alt="thumbnail"
                                     />
                                 </div>
@@ -82,7 +83,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                                     <img
                                         onClick={() => setCurrentProductImage(1)}
                                         className={currentProductImage === 1 ? 'active' : ''}
-                                        src={productData[1].thumbnail}
+                                        src={`${items[id].img[2]}`}
                                         alt="thumbnail"
                                     />
                                 </div>
@@ -91,7 +92,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                                     <img
                                         onClick={() => setCurrentProductImage(2)}
                                         className={currentProductImage === 2 ? 'active' : ''}
-                                        src={productData[2].thumbnail}
+                                        src={`${items[id].img[3]}`}
                                         alt="thumbnail"
                                     />
                                 </div>
@@ -100,7 +101,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                                     <img
                                         onClick={() => setCurrentProductImage(3)}
                                         className={currentProductImage === 3 ? 'active' : ''}
-                                        src={productData[3].thumbnail}
+                                        src={`${items[id].img[4]}`}
                                         alt="thumbnail"
                                     />
                                 </div>
@@ -150,8 +151,8 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                     </div>
                     <Div>
                         <Description className="product-description flow">
-                            <h1>Áo nữ Libé Workshop</h1>
-                            <Price>200.000 đ</Price>
+                            <h1>{items[id].name}</h1>
+                            <Price>{items[id].price}</Price>
                             <p>
                                 These low-profile sneakers are your perfect casual wear companion.
                                 Featuring a durable rubber outer sole, they’ll withstand everything
@@ -176,7 +177,7 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                             <Info>
                                 <Avatar src={avatar}></Avatar>
                                 <SuperInfo>
-                                    <h3>Khánh Linh</h3>
+                                    <h3>{items[id].author}</h3>
                                     <p>Let me illuminate your ideas through creations</p>
                                     <BuyButton>Liên hệ</BuyButton>
                                 </SuperInfo>
@@ -185,7 +186,13 @@ const Product = ({ productQuantity, setProductQuantity, setCartProductQuantity }
                     </Div>
                 </Section>
 
-                {lightbox && <Lightbox productData={productData} setLightbox={setLightbox} />}
+                {lightbox && (
+                    <Lightbox
+                        item={items[id]}
+                        productData={productData}
+                        setLightbox={setLightbox}
+                    />
+                )}
             </Wrapper>
         </Container>
     );

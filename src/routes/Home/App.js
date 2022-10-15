@@ -8,27 +8,20 @@ import productApi from '../../utils/productApi';
 import { Img } from './Style';
 import Menu from './components/Menu/index';
 import CardContainer from './components/ProductCard';
+import { items } from './data';
 
 import { Container } from '@mui/system';
 
 const App = () => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        getAllProduct();
-    }, []);
-    const getAllProduct = async () => {
-        const path = await productApi.getAllProduct();
-        setData(path.data);
-    };
     const dispatch = useDispatch();
-    const [menuItems, setMenuItems] = useState(data);
+    const [menuItems, setMenuItems] = useState(items);
 
     const filterItems = (category) => {
         if (category === 'all') {
-            setMenuItems(data);
+            setMenuItems(items);
             return;
         }
-        const newItems = data.filter((item) => item.category === category);
+        const newItems = items.filter((item) => item.category === category);
         setMenuItems(newItems);
     };
 
