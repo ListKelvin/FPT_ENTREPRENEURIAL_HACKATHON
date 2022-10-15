@@ -27,10 +27,7 @@ const RightContent = () => {
     const validationSchema = Yup.object({
         email: Yup.string()
             .required('email cannot be empty')
-            .matches(
-                /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/,
-                'Your email must match the following formats'
-            ),
+            .matches(/^[\w-]+@fpt.edu.vn$/, 'Your email must match the following formats'),
         password: Yup.string()
             .required('Required')
             .min(8, 'Your password is too short.')
@@ -40,7 +37,7 @@ const RightContent = () => {
             ),
     });
     return (
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} square sx={{ background: '#282828' }}>
             <Box
                 sx={{
                     my: 8,
@@ -87,12 +84,14 @@ const RightContent = () => {
                                     control="MuiInput"
                                     label="Email"
                                     name="email"
+                                    variant="outlined"
                                 />
                                 <FormikControl
                                     control="MuiInput"
                                     type="password"
                                     label="Password"
                                     name="password"
+                                    variant="outlined"
                                 />
                                 <BaseButton
                                     variant="contained"

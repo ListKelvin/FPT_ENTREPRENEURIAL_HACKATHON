@@ -7,6 +7,7 @@ import App from './Home/App';
 import SignInComponent from './LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import SignUpPage from './SignUpPage';
 
 // children: [
 //     {
@@ -27,6 +28,12 @@ const publicRoute = [
         exact: true,
         restrict: true,
     },
+    {
+        path: 'register',
+        component: <SignUpPage />,
+        exact: true,
+        restrict: true,
+    },
 ];
 
 const privateRoute = [
@@ -39,8 +46,6 @@ const privateRoute = [
 ];
 
 const RouterComponent = () => {
-    const [setter, setSetter] = useState();
-
     return (
         <Layout>
             <BrowserRouter>

@@ -1,7 +1,8 @@
+import CheckBox from './CheckBox';
 import Input from './Input';
 import MuiInput from './Mui-input';
 import RadioButtons from './RadioButtons';
-import Select from './select';
+import Select from './Select';
 
 const FormikControl = (props) => {
     const { control, ...rest } = props;
@@ -14,10 +15,8 @@ const FormikControl = (props) => {
             return <Select {...rest} />;
         case 'radio':
             return <RadioButtons {...rest} />;
-        // case 'checkbox':
-        //   return <CheckboxGroup {...rest} />
-        // case 'date':
-        //   return <DatePicker {...rest} />
+        case 'checkbox':
+            return <CheckBox {...rest} />;
         case 'MuiInput':
             return <MuiInput {...rest} />;
         default:

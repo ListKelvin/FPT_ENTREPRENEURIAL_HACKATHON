@@ -2,7 +2,7 @@ import { Field } from 'formik';
 
 import { TextField } from '@mui/material';
 
-const MuiInput = ({ label, name, ...rest }) => {
+const MuiInput = ({ label, name, variant, ...rest }) => {
     return (
         <Field name={name}>
             {({ field, form }) => {
@@ -18,6 +18,7 @@ const MuiInput = ({ label, name, ...rest }) => {
                                     sm: '255px',
                                     md: '350px',
                                 },
+                                color: 'white',
                                 // height: '50px',
                                 marginBottom: '20px',
                                 // "320px",
@@ -29,7 +30,7 @@ const MuiInput = ({ label, name, ...rest }) => {
                             {...field}
                             error={form.errors[name] ? true : false}
                             helperText={form.errors[name]}
-                            variant="outlined"
+                            variant={variant}
                         />
                     </>
                 );
