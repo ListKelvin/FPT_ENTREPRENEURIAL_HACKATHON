@@ -35,6 +35,7 @@ const publicRoute = [
         restrict: true,
     },
     {
+
         path: 'chat',
         component: <ChatBox />,
         exact: true,
@@ -47,6 +48,12 @@ const publicRoute = [
         exact: true,
         restrict: true,
     },
+    {
+        path: 'detail/:id',
+        component: <Product />,
+         exact: true,
+        restrict: true,
+    }
     {
         path: 'order',
         component: <OrderPage />,
