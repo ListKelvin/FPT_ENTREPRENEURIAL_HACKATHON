@@ -1,32 +1,47 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import logo from '../../assets/logo.svg';
-import { Wrapper, Logo, Header } from './Style';
-import { actions } from './slice';
-import { selectCounter, selectHello } from './slice/selectors';
+import bg from '../../assets/image/bg.png';
+import Footer from '../../components/footer/Footer.component';
+import productApi from '../../utils/productApi';
+import { Img } from './Style';
+import Menu from './components/Menu/index';
+import CardContainer from './components/ProductCard';
+import { items } from './data';
+
+import { Container } from '@mui/system';
 
 const App = () => {
     const dispatch = useDispatch();
-    const counter = useSelector(selectCounter);
-    const hello = useSelector(selectHello);
-    useEffect(() => {
-        setInterval(() => dispatch(actions.changeCounter(performance.now().toFixed(0))), 100);
-    }, []);
+    const [menuItems, setMenuItems] = useState(items);
+
+    const filterItems = (category) => {
+        if (category === 'all') {
+            setMenuItems(items);
+            return;
+        }
+        const newItems = items.filter((item) => item.category === category);
+        setMenuItems(newItems);
+    };
 
     return (
-        <Wrapper>
-            <Header>
-                <Logo src={logo} alt="logo" />
-                <div>
-                    <div code>{hello}</div>
-                </div>
-                <div>
-                    <div code>{counter}</div>
-                </div>
-            </Header>
-        </Wrapper>
+        <Container
+            maxWidth={false}
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                background: '#0f0f0f',
+                width: '100%',
+                flexDirection: 'column',
+            }}
+        >
+            <Img src={bg}></Img>
+            <Menu filterItems={filterItems}></Menu>
+            <CardContainer items={menuItems}></CardContainer>
+            <Footer />
+        </Container>
     );
 };
 
