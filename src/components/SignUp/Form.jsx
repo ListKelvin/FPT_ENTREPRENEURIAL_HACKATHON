@@ -35,7 +35,7 @@ const FormRegister = () => {
         password: '',
         confirmPassword: '',
         accpetPolicy: false,
-        otb: '',
+        otp: '',
     };
 
     const onSubmit = (values) => {
@@ -187,8 +187,8 @@ const FormRegister = () => {
                                 <Form>
                                     <FormikControl
                                         control="MuiInput"
-                                        name="otb"
-                                        label="OTB"
+                                        name="otp"
+                                        label="OTP"
                                         variant="standard"
                                     />
                                     <ButtonRegister sx={{ width: '120px', height: '30px' }}>
