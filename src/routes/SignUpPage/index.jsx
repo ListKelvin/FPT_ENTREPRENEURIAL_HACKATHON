@@ -21,7 +21,7 @@ const SignUpPage = () => {
                         height: '630px',
                         display: 'flex',
                         alignItems: 'center',
-                        background: '#FFFFFF',
+                        background: '#0F0F0F',
                         border: '1px solid rgba(0, 0, 0, 0.35)',
                         boxShadow: '5px 4px 4px 4px rgba(0, 0, 0, 0.25)',
                         borderRadius: '15px',

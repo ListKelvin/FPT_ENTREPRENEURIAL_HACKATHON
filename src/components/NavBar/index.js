@@ -34,13 +34,14 @@ function NavBar() {
     const Navigate = useNavigate();
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
-        borderRadius: theme.shape.borderRadius,
+        borderRadius: '50px',
         backgroundColor: 'white',
         '&:hover': {
             backgroundColor: 'white',
         },
         color: 'black',
         marginLeft: 0,
+
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(1),
@@ -67,7 +68,7 @@ function NavBar() {
             transition: theme.transitions.create('width'),
             width: '100%',
             [theme.breakpoints.up('sm')]: {
-                width: '100ch',
+                width: '115ch',
                 // '&:focus': {
                 //     width: '40ch',
                 // },
