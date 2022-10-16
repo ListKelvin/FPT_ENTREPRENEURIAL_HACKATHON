@@ -53,6 +53,12 @@ const publicRoute = [
         exact: true,
         restrict: true,
     },
+    {
+        path: 'register',
+        component: <SignUpPage />,
+        exact: true,
+        restrict: true,
+    },
 ];
 
 const privateRoute = [

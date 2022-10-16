@@ -5,6 +5,9 @@ import px2vw from '../../utils/px2vw';
 
 export const NavLink = styled(Link)`
     text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+
     color: white;
 `;
 export const Nav = styled.div`
