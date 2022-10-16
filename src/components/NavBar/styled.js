@@ -108,6 +108,10 @@ export const Button = styled.button`
     font-size: 20px;
     line-height: 23px;
     cursor: pointer;
+    transition: 0.5s ease all;
+    &:hover {
+        transform: translateY(-20px);
+    }
 `;
 export const AddingButton = styled(Button)`
     border: 1px solid #94ff6e;
@@ -131,4 +135,10 @@ export const NavButton = styled.button`
     @media screen and (max-width: 1000px) {
         display: block;
     }
+`;
+export const SignUp = styled(Button)`
+    background: #94ff6e;
+    color: black;
+    border: none;
+    margin-left: 20px;
 `;

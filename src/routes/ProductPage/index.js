@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { toastSuccess } from '../../components/ToastNotification';
 import { addItem } from '../../store/slice/cartSlice';
 import { items } from '../Home/data';
 import { productData } from './ProductData';
@@ -38,11 +39,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 const Product = () => {
     const [currentProductImage, setCurrentProductImage] = useState(0);
     const [lightbox, setLightbox] = useState(false);
-    const [quanity, setQuanity] = useState(0);
-    const [itemz, setItem] = useState();
+    const [quanity, setQuanity] = useState(1);
     const avatar =
         'https://scontent.fsgn2-1.fna.fbcdn.net/v/t39.30808-6/298917782_2850144668625493_4934864891793808158_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iUWQJwob5wMAX9XR1lo&_nc_ht=scontent.fsgn2-1.fna&oh=00_AT-b15etkZh7oEPP0Ekh1T-7vfTu5npBtuBpOY2HXSbu0w&oe=63502348';
     const handleAddToCart = () => {
+        toastSuccess(`Bạn vừa thêm vào giỏ hàng thành công ${quanity} ${items[id].name}!!`);
         dispatch(addItem(items[id]));
     };
     const dispatch = useDispatch();

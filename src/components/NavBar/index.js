@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { WavyContainer, WavyLink } from 'react-wavy-transitions';
 
 import SecondHandLogo from '../../assets/logo/logodark.png';
@@ -15,6 +17,7 @@ import {
     AddingButton,
     Container,
     NavButton,
+    SignUp,
 } from './styled';
 
 import ChatIcon from '@mui/icons-material/Chat';
@@ -28,6 +31,7 @@ import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 
 function NavBar() {
+    const Navigate = useNavigate();
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -76,6 +80,7 @@ function NavBar() {
     const toggleNav = () => {
         setToggleMenu(!toggleMenu);
     };
+    const { isCartOpen, cartItems } = useSelector((state) => state.cart);
 
     useEffect(() => {
         const changeWidth = () => {
@@ -100,8 +105,8 @@ function NavBar() {
                             <RightNav>
                                 <ul>
                                     <li>
-                                        <WavyLink to="/order" color="#45ce7b">
-                                            <Badge badgeContent={4} color="primary">
+                                        <WavyLink to="/cart" color="#45ce7b">
+                                            <Badge badgeContent={cartItems.length} color="primary">
                                                 <SegmentIcon />
                                                 Đơn hàng
                                             </Badge>
@@ -119,11 +124,14 @@ function NavBar() {
                                             Thông báo
                                         </WavyLink>
                                     </li>
-
-                                    <Button>
+                                    <Button onClick={Navigate('/login')}>
                                         <PermIdentityIcon />
-                                        Tài khoản
+                                        Đăng Nhập
                                     </Button>
+                                    <SignUp onClick={Navigate('register')}>
+                                        <PermIdentityIcon />
+                                        Đăng kí
+                                    </SignUp>
                                 </ul>
                             </RightNav>
                         </Top>
@@ -138,7 +146,9 @@ function NavBar() {
                                 />
                             </Search>
                             <AddingButton>
-                                <NavLink to="post">Đăng Tin</NavLink>
+                                <WavyLink to="/post" color="#45ce7b">
+                                    Đăng Tin
+                                </WavyLink>
                             </AddingButton>
                         </Bottom>
                     </>
