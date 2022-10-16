@@ -3,20 +3,24 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Card from '../../components/Card';
+import { Button } from '../../components/NavBar/styled';
 import { toggleCart, removeItem, incrementItem, decrementItem } from '../../store/slice/cartSlice';
-import { Wrapper } from './styled';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import { Wrapper, QuantiyContainer, Minus, Plus, Quantity, Div, OrderButton, H5 } from './styled';
 
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { Container } from '@mui/system';
 
 function Cart() {
     const { isCartOpen, cartItems } = useSelector((state) => state.cart);
-
+    console.log(cartItems);
     const dispatch = useDispatch();
-
-    const handleCloseCart = (close) => {
-        dispatch(toggleCart(close));
-    };
-
+    let total = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+        total += cartItems[i].price * cartItems[i].quantity;
+    }
+    LocalStorageUtils.setItem('total', total);
     const handleRemove = (itemId) => {
         dispatch(removeItem(itemId));
     };
@@ -28,7 +32,6 @@ function Cart() {
     const handleDecrement = (itemId) => {
         dispatch(decrementItem(itemId));
     };
-    console.log(cartItems.length);
     return (
         <Container
             maxWidth={false}
@@ -45,18 +48,30 @@ function Cart() {
             <Wrapper>
                 {cartItems.map((item) => {
                     return (
-                        <Card
-                            key={item.id}
-                            name={item.name}
-                            author={item.author}
-                            time={item.time}
-                            img={item.img}
-                            price={item.price}
-                            category={item.category}
-                        ></Card>
+                        <Div key={item.id}>
+                            <Card
+                                name={item.name}
+                                author={item.author}
+                                time={item.time}
+                                img={item.img}
+                                price={item.price}
+                                category={item.category}
+                            ></Card>
+                            <QuantiyContainer>
+                                <Minus onClick={() => handleDecrement(item.id)}>
+                                    <RemoveIcon />
+                                </Minus>
+                                <Quantity>{item.quantity}</Quantity>
+                                <Plus onClick={() => handleIncrement(item.id)}>
+                                    <AddIcon />
+                                </Plus>
+                            </QuantiyContainer>
+                        </Div>
                     );
                 })}
             </Wrapper>
+            <H5>{`${total}.đ`}</H5>
+            <Button onClick={() => window.location('/oderpage')}>Order</Button>
         </Container>
     );
 }

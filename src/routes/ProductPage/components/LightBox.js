@@ -14,7 +14,7 @@ import {
     CloseButton,
 } from './styled';
 
-export const Lightbox = ({ productData, setLightbox }) => {
+export const Lightbox = ({ item, productData, setLightbox }) => {
     const [currentProductImage, setCurrentProductImage] = useState(0);
     const ref = useRef();
 
@@ -38,17 +38,13 @@ export const Lightbox = ({ productData, setLightbox }) => {
                         />
                     </svg>
                 </CloseButton>
-                <BigImg
-                    className="lightbox-image"
-                    src={productData[currentProductImage].png}
-                    alt=""
-                />
+                <BigImg className="lightbox-image" src={item.img[1]} alt="" />
                 <ThumbContainer className="thumbnail-wrapper flex">
                     <div className="thumbnail">
                         <img
                             onClick={() => setCurrentProductImage(0)}
                             className={currentProductImage === 0 ? 'active' : ''}
-                            src={productData[0].thumbnail}
+                            src={item.img[2]}
                             alt="thumbnail"
                         />
                     </div>
@@ -57,7 +53,7 @@ export const Lightbox = ({ productData, setLightbox }) => {
                         <img
                             onClick={() => setCurrentProductImage(1)}
                             className={currentProductImage === 1 ? 'active' : ''}
-                            src={productData[1].thumbnail}
+                            src={item.img[2]}
                             alt="thumbnail"
                         />
                     </div>
@@ -66,7 +62,7 @@ export const Lightbox = ({ productData, setLightbox }) => {
                         <img
                             onClick={() => setCurrentProductImage(2)}
                             className={currentProductImage === 2 ? 'active' : ''}
-                            src={productData[2].thumbnail}
+                            src={item.img[3]}
                             alt="thumbnail"
                         />
                     </div>
@@ -75,7 +71,7 @@ export const Lightbox = ({ productData, setLightbox }) => {
                         <img
                             onClick={() => setCurrentProductImage(3)}
                             className={currentProductImage === 3 ? 'active' : ''}
-                            src={productData[3].thumbnail}
+                            src={item.img[4]}
                             alt="thumbnail"
                         />
                     </div>
