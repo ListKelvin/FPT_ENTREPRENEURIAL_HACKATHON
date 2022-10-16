@@ -5,6 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0f0f0f;
 }
 
 code {
@@ -76,3 +77,60 @@ input{
 .noi{
 height:137.5px;
 }
+.ChatContainer-chat-7{
+  background: #0f0f0f !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  background: #0f0f0f !important;
+}
+.css-bshv44-MuiButtonBase-root-MuiListItem-root{
+  background: #0f0f0f !important;
+  color: white !important;;
+}
+.css-83ijpv-MuiTypography-root {
+  color:white !important;
+}.ChatContainer-msg-8{
+  border-radius: 15px!important;}
+  .ChatContainer-msgIncoming-9{
+    margin-left: 20px;
+  }
+  .ChatContainer-msg-8 {
+    margin-right: 20px;
+    background: #45ce7b !important;;
+  }
+  .ChatContainer-msgIncoming-9{
+    background-color: #3E4042!important;
+    color: White !important;;
+  }
+  body{
+    background-color: #0f0f0f!important;
+  }
+  .css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+    color:white!important;
+  }
+  .ChatContainer-sendMsgContainer-16{
+    border:1px solid #45ce7b!important;
+  }
+  .css-jcn4dz-MuiBadge-badge {
+    background-color: #45ce7b!important;
+  }::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #0f0f0f;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #45ce7b;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94FF6E;
+  }.ChatContainer-chat-7{
+    box-shadow: 0 !important;;
+  }

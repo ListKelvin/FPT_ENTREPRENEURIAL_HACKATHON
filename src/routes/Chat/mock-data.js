@@ -1,5 +1,5 @@
 const getAvatar = () => {
-    return `https://api.adorable.io/avatars/50/${Math.floor(Math.random() * Math.floor(100))}.png`;
+    return `https://i.picsum.photos/id/113/200/300`;
 };
 
 export const contacts = [

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { WavyContainer, WavyLink } from 'react-wavy-transitions';
+
 import SecondHandLogo from '../../assets/logo/logodark.png';
 import {
     Nav,
@@ -92,30 +94,30 @@ function NavBar() {
                 <Nav>
                     <>
                         <Top>
-                            <NavLink to="/home">
+                            <WavyLink to="/" color="#45ce7b">
                                 <Logo src={SecondHandLogo}></Logo>
-                            </NavLink>
+                            </WavyLink>
                             <RightNav>
                                 <ul>
                                     <li>
-                                        <NavLink to="/order">
+                                        <WavyLink to="/order" color="#45ce7b">
                                             <Badge badgeContent={4} color="primary">
                                                 <SegmentIcon />
                                                 Đơn hàng
                                             </Badge>
-                                        </NavLink>
+                                        </WavyLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/chat">
+                                        <WavyLink to="/chat" color="#45ce7b">
                                             <ChatIcon />
                                             Chat
-                                        </NavLink>
+                                        </WavyLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/notification">
+                                        <WavyLink to="/notification" color="#45ce7b">
                                             <NotificationsIcon />
                                             Thông báo
-                                        </NavLink>
+                                        </WavyLink>
                                     </li>
 
                                     <Button>
@@ -126,7 +128,7 @@ function NavBar() {
                             </RightNav>
                         </Top>
                         <Bottom>
-                            <Search>
+                            <Search styled={{ borderRadius: '15px' }}>
                                 <SearchIconWrapper>
                                     <SearchIcon />
                                 </SearchIconWrapper>

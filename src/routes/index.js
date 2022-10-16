@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { BrowserRouter, Route, Routes, Navigate, Outlet } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { WavyContainer, WavyLink } from 'react-wavy-transitions';
 
 import Layout from '../components/Layout/LayoutComponent';
@@ -84,24 +84,7 @@ const RouterComponent = () => {
             <WavyContainer />
             <Layout>
                 <Routes>
-                    <Route
-                        exact
-                        path="/"
-                        element={
-                            <>
-                                <WavyLink to="/" color="#ff44fd">
-                                    Home
-                                </WavyLink>
-                                <WavyLink direction="up" to="/about" color="#8f44fd">
-                                    About
-                                </WavyLink>
-                                <WavyLink duration={1000} to="/contact" color="#2f44fd">
-                                    Contact
-                                </WavyLink>
-                                <Outlet />
-                            </>
-                        }
-                    />
+                    <Route exact path="/" element={<Navigate to="/home" />} />
                     <Route exact path="/" element={<PrivateRoute />}>
                         {privateRoute.map((route) => (
                             <Route
