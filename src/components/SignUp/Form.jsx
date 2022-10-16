@@ -44,6 +44,7 @@ const FormRegister = () => {
         data2.email = values.email;
         data2.password = values.password;
         data2.confirmPassword = values.confirmPassword;
+
         const responses = post('/account/sign-up', data2, {}, {})
             .then((data) => {
                 console.log(data.message);
