@@ -2,7 +2,7 @@ import CheckBox from './CheckBox';
 import Input from './Input';
 import MuiInput from './Mui-input';
 import RadioButtons from './RadioButtons';
-import Select from './Select';
+import Select from './select';
 
 const FormikControl = (props) => {
     const { control, ...rest } = props;

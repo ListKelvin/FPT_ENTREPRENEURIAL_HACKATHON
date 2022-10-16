@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate, Outlet } from 'react-router-dom';
+import { WavyContainer, WavyLink } from 'react-wavy-transitions';
 
 import Layout from '../components/Layout/LayoutComponent';
+import Toast from '../components/ToastNotification/index';
 import Cart from './Cart/index';
 import ChatBox from './Chat';
 import App from './Home/App';
@@ -35,13 +37,17 @@ const publicRoute = [
         restrict: true,
     },
     {
-
         path: 'chat',
         component: <ChatBox />,
         exact: true,
         restrict: true,
     },
-
+    {
+        path: 'order',
+        component: <OrderPage />,
+        exact: true,
+        restrict: true,
+    },
     {
         path: 'post',
         component: <PostProductPage />,
@@ -51,12 +57,13 @@ const publicRoute = [
     {
         path: 'detail/:id',
         component: <Product />,
-         exact: true,
+        exact: true,
         restrict: true,
-    }
+    },
+
     {
-        path: 'order',
-        component: <OrderPage />,
+        path: 'cart',
+        component: <Cart />,
         exact: true,
         restrict: true,
     },
@@ -74,9 +81,27 @@ const privateRoute = [
 const RouterComponent = () => {
     return (
         <BrowserRouter>
+            <WavyContainer />
             <Layout>
                 <Routes>
-                    <Route exact path="/" element={<Navigate to="/home" />} />
+                    <Route
+                        exact
+                        path="/"
+                        element={
+                            <>
+                                <WavyLink to="/" color="#ff44fd">
+                                    Home
+                                </WavyLink>
+                                <WavyLink direction="up" to="/about" color="#8f44fd">
+                                    About
+                                </WavyLink>
+                                <WavyLink duration={1000} to="/contact" color="#2f44fd">
+                                    Contact
+                                </WavyLink>
+                                <Outlet />
+                            </>
+                        }
+                    />
                     <Route exact path="/" element={<PrivateRoute />}>
                         {privateRoute.map((route) => (
                             <Route
@@ -102,6 +127,7 @@ const RouterComponent = () => {
                     <Route path="*" element={<p>404</p>} />
                 </Routes>
             </Layout>
+            <Toast />
         </BrowserRouter>
     );
 };

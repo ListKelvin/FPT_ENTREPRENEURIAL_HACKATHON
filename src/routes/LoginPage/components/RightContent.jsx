@@ -7,7 +7,7 @@ import { logIn } from '../../../actions/AuthActions';
 import { BaseButton } from '../../../components/Button/Button.styled';
 import FormikControl from '../../../components/Formik/FormikControl';
 import { post } from '../../../utils/ApiCaller';
-import localStorageUtils from '../../../utils/localStorageUtils';
+import localStorageUtils from '../../../utils/LocalStorageUtils';
 import { FormContainer } from '../styles';
 
 import { Typography } from '@mui/material';

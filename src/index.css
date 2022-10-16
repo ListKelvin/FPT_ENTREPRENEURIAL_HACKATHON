@@ -18,16 +18,20 @@ code {
     border-radius: 15px;
 }
 .input {
-    background-color: #94ff6e;
+    background-color: transparent;
     border: none;
-    width: 100px;
-    height: 50px;
+    width: 500px;
+    position: relative;
+    height: 600px;
+    border: 1px solid #94FF6E;
     border-radius: 15px;
 }
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+
   color: white !important;
 }
 .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root{
+  margin-left:15px ;
   color: white !important;
 }
 .css-j204z7-MuiFormControlLabel-root {
@@ -68,4 +72,7 @@ code {
 }
 input{
   border-color: white;
+}
+.noi{
+height:137.5px;
 }

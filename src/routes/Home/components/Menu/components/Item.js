@@ -12,7 +12,7 @@ function Item({ img, name, filterItems }) {
     };
     return (
         <Box onClick={handleClick}>
-            <img src={img} alt="" />
+            <img src={img} className="noi" alt="" />
             <h5>{name}</h5>
         </Box>
     );

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Card from '../../components/Card';
 import { Button } from '../../components/NavBar/styled';
+import { toastSuccess } from '../../components/ToastNotification';
 import { toggleCart, removeItem, incrementItem, decrementItem } from '../../store/slice/cartSlice';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
 import { Wrapper, QuantiyContainer, Minus, Plus, Quantity, Div, OrderButton, H5 } from './styled';
@@ -71,7 +72,7 @@ function Cart() {
                 })}
             </Wrapper>
             <H5>{`${total}.đ`}</H5>
-            <Button onClick={() => window.location('/oderpage')}>Order</Button>
+            <Button onClick={() => toastSuccess('Order Succesfully!!')}>Order</Button>
         </Container>
     );
 }

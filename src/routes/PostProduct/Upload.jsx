@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 import { Formik, Form } from 'formik';
+import styled from 'styled-components';
+
+import { ReactComponent as Image130 } from '../../assets/post/Group130.svg';
 
 const UploadSection = () => {
     const [image, setImage] = useState('');
@@ -65,11 +68,12 @@ const UploadSection = () => {
                                     formik.setFieldValue('profile', myFiles);
                                 }}
                                 multiple
-                            />
+                            ></input>
+                            <Image130 style={{ position: 'absolute', top: '67%', left: '25%' }} />
 
-                            <button className="button" type="submit">
-                                Submit
-                            </button>
+                            <ButtonSubmit type="submit">
+                                Đăng tải hình ảnh/ video tại đây
+                            </ButtonSubmit>
                         </Form>
                     </>
                 );
@@ -83,3 +87,17 @@ const UploadSection = () => {
 export default UploadSection;
 
 // <ErrorMessage name="profile" />
+export const ButtonSubmit = styled.button`
+    background-color: transparent;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    position: absolute;
+    top: 650px;
+    left: 310px;
+    color: #ffffff;
+`;

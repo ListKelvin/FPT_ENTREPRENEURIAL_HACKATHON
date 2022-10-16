@@ -10,6 +10,7 @@ export const Hero = styled.div`
     display: flex;
     justify-content: space-between;
     h1 {
+        margin-left: 30px;
         color: #94ff6e;
         text-transform: uppercase;
         font-size: 40px;
@@ -20,7 +21,8 @@ export const Hero = styled.div`
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 300;
-        font-size: 10px;
+        color: #94ff6e;
+        font-size: 16px;
         line-height: 23px;
         display: flex;
         padding: 4px 12px;
@@ -28,8 +30,8 @@ export const Hero = styled.div`
         align-items: center;
         text-align: center;
         text-decoration-line: underline;
-
-        color: #ffffff;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 `;
 export const CardWrapper = styled.div`

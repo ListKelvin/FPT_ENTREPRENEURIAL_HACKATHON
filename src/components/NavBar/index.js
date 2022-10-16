@@ -21,6 +21,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import SearchIcon from '@mui/icons-material/Search';
 import SegmentIcon from '@mui/icons-material/Segment';
+import Badge from '@mui/material/Badge';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 
@@ -91,13 +92,17 @@ function NavBar() {
                 <Nav>
                     <>
                         <Top>
-                            <Logo src={SecondHandLogo}></Logo>
+                            <NavLink to="/home">
+                                <Logo src={SecondHandLogo}></Logo>
+                            </NavLink>
                             <RightNav>
                                 <ul>
                                     <li>
                                         <NavLink to="/order">
-                                            <SegmentIcon />
-                                            Đơn hàng
+                                            <Badge badgeContent={4} color="primary">
+                                                <SegmentIcon />
+                                                Đơn hàng
+                                            </Badge>
                                         </NavLink>
                                     </li>
                                     <li>

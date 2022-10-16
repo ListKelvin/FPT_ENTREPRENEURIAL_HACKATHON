@@ -10,7 +10,9 @@ import FormikControl from '../../../components/Formik/FormikControl';
 // import * as Yup from 'yup';
 // import { ValidationSchema } from '../Schema/validation';
 import { Typography } from '@mui/material';
+import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import { Box } from '@mui/system';
 
 const PostForm = () => {
@@ -20,6 +22,9 @@ const PostForm = () => {
             borderColor: 'yellow !important',
         },
     });
+    const handleClick = () => {
+        console.info('You clicked the Chip.');
+    };
     const ValidationSchema = Yup.object({
         address: Yup.string().required('required'),
         category: Yup.string().required('required'),
@@ -123,7 +128,7 @@ const PostForm = () => {
                                         fontSize: '20px',
                                         lineHeight: '24px',
                                         color: 'white',
-                                        // marginBottom: '10px',
+                                        marginBottom: '10px',
                                     }}
                                 >
                                     Thông tin chi tiết
@@ -137,24 +142,27 @@ const PostForm = () => {
                                             fontSize: '16px',
                                             lineHeight: '19px',
                                             color: '#888888',
+                                            marginBottom: '18px',
                                         }}
                                     >
                                         Tình trạng sử dụng
                                     </Typography>
-                                </Box>
-                                <Box>
-                                    <Typography
-                                        sx={{
-                                            fontFamily: 'Roboto',
-                                            fontStyle: 'normal',
-                                            fontWeight: 400,
-                                            fontSize: '16px',
-                                            lineHeight: '19px',
-                                            color: '#888888',
-                                        }}
+                                    <Stack
+                                        direction="row"
+                                        spacing={1}
+                                        sx={{ marginBottom: '18px' }}
                                     >
-                                        Giá
-                                    </Typography>
+                                        <Chip label="Đã sử dụng" color="success" clickable={true} />
+                                        <Chip
+                                            clickable={true}
+                                            onclick={handleClick}
+                                            label="Mới"
+                                            variant="outlined"
+                                            color="success"
+                                        />
+                                    </Stack>
+                                </Box>
+                                <Box sx={{ marginBottom: '18px' }}>
                                     <FormikControl
                                         control="MuiInput"
                                         sx={{
@@ -229,16 +237,6 @@ const PostForm = () => {
                             <BaseButton type="submit" sx={{ width: '200px' }}>
                                 Register Now
                             </BaseButton>
-                            <Box
-                                sx={{
-                                    width: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <Typography>đã có tài khoản rồi đây</Typography>
-                                <BaseButton sx={{ width: '120px', height: '30px' }}>đây</BaseButton>
-                            </Box>
                         </Box>
                     </FormContainer>
                 );

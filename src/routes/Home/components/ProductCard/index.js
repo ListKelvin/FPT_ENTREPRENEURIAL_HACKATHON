@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-
 import Card from '../../../../components/Card';
+import { NavLink } from '../../../../components/NavBar/styled';
 import { Wrapper, Hero, CardWrapper } from '../styled';
 
 function CardContainer({ items }) {
+    console.log(items);
     return (
         <Wrapper>
             <Hero>
@@ -13,19 +13,22 @@ function CardContainer({ items }) {
             <CardWrapper>
                 {items.map((item) => {
                     return (
+                        // /
+                        //
+                        //
+                        //
+                        //
                         <div key={item.id}>
-                            <Link to={`/detail/${item.id}`}>
+                            <NavLink to={`/detail/${item.id}`}>
                                 <Card
                                     name={item.name}
                                     author={item.author}
                                     time={item.time}
-                                    img={item.img}
+                                    img={item.img[0]}
                                     price={item.price}
                                     category={item.category}
-                                >
-                                    {' '}
-                                </Card>
-                            </Link>
+                                />
+                            </NavLink>
                         </div>
                     );
                 })}

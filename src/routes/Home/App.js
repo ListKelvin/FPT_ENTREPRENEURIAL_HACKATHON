@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import bg from '../../assets/image/bg.png';
+import Footer from '../../components/footer/Footer.component';
 import productApi from '../../utils/productApi';
 import { Img } from './Style';
 import Menu from './components/Menu/index';
@@ -39,6 +40,7 @@ const App = () => {
             <Img src={bg}></Img>
             <Menu filterItems={filterItems}></Menu>
             <CardContainer items={menuItems}></CardContainer>
+            <Footer />
         </Container>
     );
 };
