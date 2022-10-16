@@ -15,6 +15,7 @@ import Product from './ProductPage/index';
 import PublicRoute from './PublicRoute';
 import SignUpPage from './SignUpPage';
 import UpdateInfoPage from './UpdateInfo';
+import VerifyEmail from './VerifyEmail';
 import OrderPage from './orderPage';
 
 // children: [
@@ -79,6 +80,12 @@ const publicRoute = [
         exact: true,
         restrict: true,
     },
+    {
+        path: 'verify',
+        component: <VerifyEmail />,
+        exact: true,
+        restrict: true,
+    },
 ];
 
 const privateRoute = [
@@ -93,8 +100,8 @@ const privateRoute = [
 const RouterComponent = () => {
     return (
         <BrowserRouter>
-            <WavyContainer />
             <Layout>
+                <WavyContainer />
                 <Routes>
                     <Route exact path="/" element={<Navigate to="/home" />} />
                     <Route exact path="/" element={<PrivateRoute />}>

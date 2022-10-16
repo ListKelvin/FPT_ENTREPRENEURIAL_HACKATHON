@@ -83,24 +83,13 @@ function NavBar() {
     };
     const { isCartOpen, cartItems } = useSelector((state) => state.cart);
 
-    useEffect(() => {
-        const changeWidth = () => {
-            setScreenWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', changeWidth);
-
-        return () => {
-            window.removeEventListener('resize', changeWidth);
-        };
-    }, []);
     return (
         <Container>
             {(toggleMenu || screenWidth > 1000) && (
                 <Nav>
                     <>
                         <Top>
-                            <WavyLink to="/" color="#45ce7b">
+                            <WavyLink to="/home" color="#45ce7b">
                                 <Logo src={SecondHandLogo}></Logo>
                             </WavyLink>
                             <RightNav>
@@ -125,13 +114,17 @@ function NavBar() {
                                             Thông báo
                                         </WavyLink>
                                     </li>
-                                    <Button onClick={Navigate('/login')}>
-                                        <PermIdentityIcon />
-                                        Đăng Nhập
+                                    <Button>
+                                        <WavyLink to="/login">
+                                            <PermIdentityIcon />
+                                            Đăng Nhập
+                                        </WavyLink>
                                     </Button>
-                                    <SignUp onClick={Navigate('register')}>
-                                        <PermIdentityIcon />
-                                        Đăng kí
+                                    <SignUp>
+                                        <WavyLink to="/register">
+                                            <PermIdentityIcon />
+                                            Đăng kí
+                                        </WavyLink>
                                     </SignUp>
                                 </ul>
                             </RightNav>
