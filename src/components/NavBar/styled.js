@@ -13,6 +13,7 @@ export const NavLink = styled(Link)`
 export const Nav = styled.div`
     max-width: 1300px;
     height: 150px;
+    z-index: 50;
     width: 100%;
     background-color: #0f0f0f;
     display: flex;
@@ -111,10 +112,6 @@ export const Button = styled.button`
     font-size: 20px;
     line-height: 23px;
     cursor: pointer;
-    transition: 0.5s ease all;
-    &:hover {
-        transform: translateY(-20px);
-    }
 `;
 export const AddingButton = styled(Button)`
     border: 1px solid #94ff6e;
@@ -131,9 +128,10 @@ export const NavButton = styled.button`
     right: 10px;
     top: 7px;
     padding: 5px;
+    z-index: 99;
     color: #000;
     font-size: 18px;
-    background: transparent;
+    background: #1f1f1f1f;
     color: white;
     @media screen and (max-width: 1000px) {
         display: block;
@@ -144,4 +142,7 @@ export const SignUp = styled(Button)`
     color: black;
     border: none;
     margin-left: 20px;
+    @media screen and (max-width: 1000px) {
+        margin-top: 30px;
+    }
 `;
